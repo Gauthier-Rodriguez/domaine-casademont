@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Futura';
+  src: url('/fonts/futur.ttf') format('truetype');
+  font-weight: blod;
+  font-style: normal;
+}
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #ffffff;
+    --foreground: #000000;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Futura, sans-serif;
+}
+
+@layer utilities {
+  .bg-custom {
+    background-size: cover;
+    background-position: center;
+    background-image: url('/winesBG.svg');
+  }
+}
+
