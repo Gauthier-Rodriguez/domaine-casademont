@@ -25,7 +25,7 @@ export default function about({ }: Props) {
         </div>
 
       </div>
-      <div className='-mt-60 mb-20'>
+      <div className='-mt-20 mb-20'>
         <Carousel slides={SLIDES} options={OPTIONS} />
       </div>
 

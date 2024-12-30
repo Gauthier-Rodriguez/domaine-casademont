@@ -1,8 +1,8 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Instagram from "../../../public/instagram.svg";
-import Email from "../../../public/Email.svg";
+import Instagram from "../../assets/instagram.svg";
+import Email from "../../assets/Email.svg";
 
 gsap.registerPlugin(ScrollTrigger);
 

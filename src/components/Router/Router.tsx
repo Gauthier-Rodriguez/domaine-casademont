@@ -4,7 +4,7 @@ import Wines from '../Wines/Wines';
 import About from '../About/About';
 import Nav from '../Nav/Nav';
 import Error from '../Error/Error';
-
+import ScrollToTop from '../ScrollToTop';
 const Router = () => {
     const location = useLocation();
 
@@ -14,6 +14,7 @@ const Router = () => {
     return (
         <>
             {!isPathWithoutHeader && <Nav />}
+            <ScrollToTop />
             <Routes>
                 <Route path='*' element={<Error />} />
                 <Route path="/" element={<Home />} />
