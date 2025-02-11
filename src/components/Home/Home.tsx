@@ -2,17 +2,29 @@ import MainCanvas from '../Three/mainCanvas';
 import { useRef, useEffect, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Analytics } from '@vercel/analytics/react'
 
 const Home = () => {
   const divRef = useRef<HTMLDivElement>(null);
   // Add hydrated state
   const [isHydrated, setIsHydrated] = useState(false);
-
+  const [isScrolled, setIsScrolled] = useState(true);
   // Handle hydration complete
   useEffect(() => {
     setIsHydrated(true);
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 10) {
+        setIsScrolled(false);
+      } else {
+        setIsScrolled(true);
+      }
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   // Setup GSAP animation after hydration
@@ -66,6 +78,25 @@ const Home = () => {
       {/* Main Canvas */}
       <MainCanvas />
       <Analytics />
+
+      {isScrolled && (
+        <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce cursor-pointer z-10">
+          <svg
+            width="40"
+            height="40"
+            viewBox="0 0 24 24"
+            fill="none"
+          stroke="black"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          className="black transition-colors"
+          onClick={() => window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })}
+        >
+            <path d="M6 9l6 6 6-6" />
+          </svg>
+        </div>
+      )}
 
       {/* Animated Section */}
       <div
