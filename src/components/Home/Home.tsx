@@ -3,7 +3,7 @@ import { useRef, useEffect, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import {Link} from 'react-router-dom';
-
+import { Analytics } from '@vercel/analytics/react'
 
 const Home = () => {
   const divRef = useRef<HTMLDivElement>(null);
@@ -65,6 +65,7 @@ const Home = () => {
     <div className="h-[300vh] w-screen">
       {/* Main Canvas */}
       <MainCanvas />
+      <Analytics />
 
       {/* Animated Section */}
       <div
