@@ -18,6 +18,8 @@ export default function Model(props) {
       {/* Bottle Mesh */}
       <mesh
   geometry={nodes.Bottle.geometry}
+  material={materials['Material.007']}
+
   position={[0.003, -0.057, 0]}
   scale={-0.04}
 >
@@ -32,38 +34,41 @@ export default function Model(props) {
     envMapIntensity={1} // Intensity of the environment map reflections
   />
 </mesh>
-      {/* Label Flo */}
-      <mesh
+   
+
+<mesh
+        castShadow
+        receiveShadow
         geometry={nodes.LabelFlo.geometry}
         material={materials['Label.Flo']}
         position={[0.003, -0.057, 0]}
         scale={-0.04}
         visible={wine.num === 1}
+
       />
-      {/* Label BL */}
       <mesh
-        geometry={nodes.LabelBL.geometry}
-        material={materials['Label.BL']}
-        position={[0.003, -0.057, 0]}
-        scale={-0.04}
-        visible={wine.num === 2}
-      />
-      
-      {/* Label Vi */}
-      <mesh
+        castShadow
+        receiveShadow
         geometry={nodes.LabelVI.geometry}
-        material={materials['Label.Vi']}
-        position={[0.003, -0.057, 0]}
-        scale={-0.04}
+        material={materials['Material.009']}
+        scale={0.078}
+        visible={wine.num === 2}
+
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.LabelBL.geometry}
+        material={materials['Material.010']}
+        scale={0.078}
         visible={wine.num === 3}
       />
-      
-      {/* Label Rosé */}
       <mesh
+        castShadow
+        receiveShadow
         geometry={nodes.LabelRosé.geometry}
-        material={materials['Label.Rosé']}
-        position={[0.003, -0.057, 0]}
-        scale={-0.04}
+        material={materials['Material.012']}
+        scale={0.078}
         visible={wine.num === 4}
       />
     </group>
