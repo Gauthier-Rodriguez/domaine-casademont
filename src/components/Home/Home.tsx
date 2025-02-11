@@ -80,7 +80,7 @@ const Home = () => {
       <Analytics />
 
       {isScrolled && (
-        <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce cursor-pointer z-10">
+        <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce z-10">
           <svg
             width="40"
             height="40"
@@ -91,7 +91,6 @@ const Home = () => {
           strokeLinecap="round"
           strokeLinejoin="round"
           className="black transition-colors"
-          onClick={() => window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })}
         >
             <path d="M6 9l6 6 6-6" />
           </svg>
