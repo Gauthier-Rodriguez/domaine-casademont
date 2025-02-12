@@ -87,7 +87,7 @@ const Home = () => {
     <>
       <SEO 
         title="Domaine Casademont | Natural French Wines"
-        description="Discover Domaine Casademont, a winery in Languedoc-Roussillon. Experience our exceptional French wines crafted by Adrien Rodriguez, from robust Marcelan to elegant Grenache and Muscat. Visit our vineyard and taste the essence of southern France."
+        description="Discover Domaine Casademont, a winery in Languedoc-Roussillon. Experience our exceptional French wines crafted by Adrien Rodriguez."
         url="/"
         type="website"
       />

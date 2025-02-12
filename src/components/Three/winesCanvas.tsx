@@ -3,6 +3,7 @@ import { Canvas } from "@react-three/fiber";
 import WinesScene from "./winesScene";
 import { useEffect, useState, useRef } from "react";
 import { motion } from 'framer-motion';
+import { p } from "framer-motion/client";
 
 type Props = {};
 
@@ -12,22 +13,30 @@ export default function WinesCanvas({ }: Props) {
   const modalRef = useRef<HTMLDivElement>(null);
 
   const sections = [
-    { text: "FLORANGE",
-       gradient: "from-amber-500 to-pink-500",
-        description: "Crafted with minimal intervention to highlight the purity of its grapes. Bursting with fresh citrus and floral aromas, it offers a crisp, well-balanced palate with a touch of minerality. Unfiltered and free from additives.",
-        cepage: "CHARDONNAY" },
-    { text: "GOT DE BLANC",
+    {
+      text: "FLORANGE",
+      gradient: "from-amber-500 to-pink-500",
+      description: "Crafted with minimal intervention to highlight the purity of its grapes. Bursting with fresh citrus and floral aromas, it offers a crisp, well-balanced palate with a touch of minerality. Unfiltered and free from additives.",
+      cepage: "CHARDONNAY"
+    },
+    {
+      text: "GOT DE BLANC",
       gradient: "from-amber-200 to-yellow-400",
       description: "Crafted with minimal intervention to highlight the purity of its grapes. Bursting with fresh citrus and floral aromas, it offers a crisp, well-balanced palate with a touch of minerality. Unfiltered and free from additives.",
-      cepage: ["MUSCAT", "SAUVIGNON"]},
-    { text: "GOT DE VI",
+      cepage: ["MUSCAT", "SAUVIGNON"]
+    },
+    {
+      text: "GOT DE VI",
       gradient: "from-pink-500 to-rose-500",
       description: "Crafted with minimal intervention to highlight the purity of its grapes. Bursting with fresh citrus and floral aromas, it offers a crisp, well-balanced palate with a touch of minerality. Unfiltered and free from additives.",
-      cepage: ["MARSELAN"]},
-    { text: "ROSÉ",
+      cepage: ["MARSELAN"]
+    },
+    {
+      text: "ROSÉ",
       gradient: "from-violet-200 to-pink-200",
       description: "Crafted with minimal intervention to highlight the purity of its grapes. Bursting with fresh citrus and floral aromas, it offers a crisp, well-balanced palate with a touch of minerality. Unfiltered and free from additives.",
-      cepage: ["PINOT NOIR"]},
+      cepage: ["PINOT NOIR"]
+    },
   ];
 
   const handleOpenModal = (index: number) => {
@@ -120,24 +129,24 @@ export default function WinesCanvas({ }: Props) {
               {Array.isArray(section.cepage) ? (
                 section.cepage.map((cepage, index) => (
                   <motion.p
-                initial={{ opacity: 0, x: 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: false }}
-                transition={{ duration: 0.8, ease: "easeOut" }}
-                key={index}
-              >
-                {cepage}
-              </motion.p>
+                    initial={{ opacity: 0, x: 50 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: false }}
+                    transition={{ duration: 0.8, ease: "easeOut" }}
+                    key={index}
+                  >
+                    {cepage}
+                  </motion.p>
                 ))
               ) : (
                 <motion.p
-                initial={{ opacity: 0, x: 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: false }}
-                transition={{ duration: 0.8, ease: "easeOut" }}
-              >
-                {section.cepage}
-              </motion.p>
+                  initial={{ opacity: 0, x: 50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: false }}
+                  transition={{ duration: 0.8, ease: "easeOut" }}
+                >
+                  {section.cepage}
+                </motion.p>
               )}
             </div>
           </div>
@@ -163,8 +172,18 @@ export default function WinesCanvas({ }: Props) {
               </button>
             </div>
             <div className="mt-4">
-              {/* Add your modal content here */}
-              <p>Details about {sections[activeSection].text}</p>
+              <div>
+                <p>{sections[activeSection].description}</p>
+              </div>
+              <div className="mt-5">
+                {Array.isArray(sections[activeSection].cepage) ? (
+                  sections[activeSection].cepage.map((cepage, index) => (
+                    <p className="font-bold" key={index}>{cepage}</p>
+                  ))
+                ) : (
+                  <p className="font-bold">{sections[activeSection].cepage}</p>
+                )}
+              </div>
             </div>
           </div>
         </div>
