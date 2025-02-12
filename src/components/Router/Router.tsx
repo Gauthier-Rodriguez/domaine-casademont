@@ -5,6 +5,7 @@ import About from '../About/About';
 import Nav from '../Nav/Nav';
 import Error from '../Error/Error';
 import ScrollToTop from '../ScrollToTop';
+import { HelmetProvider } from 'react-helmet-async';
 const Router = () => {
     const location = useLocation();
 
@@ -15,14 +16,15 @@ const Router = () => {
         <>
             {!isPathWithoutHeader && <Nav />}
             <ScrollToTop />
-            <Routes>
-                <Route path='*' element={<Error />} />
-                <Route path="/" element={<Home />} />
-                <Route path="/wines" element={<Wines />} />
-                <Route path="/about" element={<About />} />
-            </Routes>
-
+            <HelmetProvider>
+                <Routes>
+                    <Route path='*' element={<Error />} />
+                    <Route path="/" element={<Home />} />
+                    <Route path="/wines" element={<Wines />} />
+                    <Route path="/about" element={<About />} />
+                </Routes>
+            </HelmetProvider>
         </>
     );
 };
-    export default Router;
+export default Router;

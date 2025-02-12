@@ -91,6 +91,10 @@ const Home = () => {
           strokeLinecap="round"
           strokeLinejoin="round"
           className="black transition-colors"
+          onClick={() => window.scrollTo({ 
+            top: window.innerHeight * 2.5, // Scroll to the bottom section (250vh)
+            behavior: 'smooth' 
+          })}
         >
             <path d="M6 9l6 6 6-6" />
           </svg>
