@@ -3,7 +3,6 @@ import { Canvas } from "@react-three/fiber";
 import WinesScene from "./winesScene";
 import { useEffect, useState, useRef } from "react";
 import { motion } from 'framer-motion';
-import { p } from "framer-motion/client";
 
 type Props = {};
 
