@@ -2,6 +2,8 @@ import { Environment } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import WinesScene from "./winesScene";
 import { useEffect, useState, useRef } from "react";
+import { motion } from 'framer-motion';
+
 type Props = {};
 
 export default function WinesCanvas({ }: Props) {
@@ -105,17 +107,37 @@ export default function WinesCanvas({ }: Props) {
               </svg>
             </div>
             <div className="hidden sm:block absolute left-0 text-justify w-1/4 ml-10">
-              <p>
+              <motion.p
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: false }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+              >
                 {section.description}
-              </p>
+              </motion.p>
             </div>
             <div className="hidden sm:block absolute right-0 text-justify w-1/4 ml-10">
               {Array.isArray(section.cepage) ? (
                 section.cepage.map((cepage, index) => (
-                  <p key={index}>{cepage}</p>
+                  <motion.p
+                initial={{ opacity: 0, x: 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: false }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+                key={index}
+              >
+                {cepage}
+              </motion.p>
                 ))
               ) : (
-                <p>{section.cepage}</p>
+                <motion.p
+                initial={{ opacity: 0, x: 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: false }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+              >
+                {section.cepage}
+              </motion.p>
               )}
             </div>
           </div>
