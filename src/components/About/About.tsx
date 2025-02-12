@@ -2,6 +2,7 @@ import Footer from '../Footer/Footer'
 import Nav from  '../Nav/Nav'
 import Carousel from '../Carousel/Carousel'
 import { EmblaOptionsType } from 'embla-carousel'
+import SEO from '../SEO/SEO'
 
 type Props = {}
 
@@ -13,6 +14,12 @@ export default function about({ }: Props) {
   return (
     <>
       <Nav />
+      <SEO 
+        title="About Us | Domaine Casademont"
+        description="Learn about our values and our journey"
+        url="/about"
+        type="product.group"
+      />
       <main className='min-h-screen w-full px-4 sm:px-6 lg:px-8 mt-20 sm:mt-24'>
         <section className='max-w-4xl mx-auto'>
           <h1 className='text-4xl sm:text-5xl lg:text-6xl font-bold text-center'>

@@ -60,6 +60,13 @@ const Home = () => {
   // Return null or loading state while hydrating
   if (!isHydrated) {
     return (
+      <>
+      <SEO 
+        title="Domaine Casademont | Natural French Wines"
+        description="Discover Domaine Casademont, a winery in Languedoc-Roussillon. Experience our exceptional French wines crafted by Adrien Rodriguez, from robust Marcelan to elegant Grenache and Muscat. Visit our vineyard and taste the essence of southern France."
+        url="/"
+        type="website"
+      />
       <div className="h-[300vh] w-screen">
         <div className="w-screen h-screen bg-black text-white absolute top-[250vh] flex flex-col justify-center items-center">
           <h1 className="text-4xl md:text-6xl lg:text-8xl text-center px-4">
@@ -71,6 +78,8 @@ const Home = () => {
           </div>
         </div>
       </div>
+      
+      </>
     );
   }
 
