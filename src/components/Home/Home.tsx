@@ -74,13 +74,13 @@ const Home = () => {
   }
 
   return (
-    <div className="h-[300vh] w-screen">
+    <div className="h-[300vh] w-screen flex items-center justify-center">
       {/* Main Canvas */}
       <MainCanvas />
       <Analytics />
 
       {isScrolled && (
-        <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce z-10">
+        <div className="absolute bottom-10 transform -translate-x-1/2 animate-bounce z-10">
           <svg
             width="40"
             height="40"
