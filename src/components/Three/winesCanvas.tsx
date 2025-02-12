@@ -58,7 +58,7 @@ export default function WinesCanvas({ }: Props) {
 
   return (
     <>
-      <div className="w-screen h-screen fixed top-0 left-0 z-10">
+      <div className="w-screen h-screen fixed top-0 left-0 z-10 overflow-x-hidden">
         <Canvas
           shadows
           dpr={[1, 2]}
@@ -70,11 +70,11 @@ export default function WinesCanvas({ }: Props) {
         </Canvas>
       </div>
 
-      <div className="relative">
+      <div className="relative overflow-x-hidden">
         {sections.map((section, index) => (
           <div
             key={index}
-            className={`w-screen h-[100vh] rounded-lg flex items-center justify-center relative`}
+            className="w-full h-[100vh] rounded-lg flex items-center justify-center relative"
           >
             <button
               className="text-2xl absolute z-50 -mt-64 right-20 h-10 w-10 rounded-full cursor-pointer bg-white/70 backdrop-blur-sm hover:bg-white/80 transition-colors sm:hidden"
