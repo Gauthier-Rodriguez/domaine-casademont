@@ -41,9 +41,20 @@ const Footer = () => {
             >
                 CONTACT
             </h1>
-            <div className="flex justify-center items-center mt-10 gap-20 ">
-                <a href="mailto:casawines@gmail.com"><img className="cursor-pointer" src={Email} alt="email" /></a>
-                <a href="https://www.instagram.com/domaine_casademont?igsh=em12cW1iZTVkZTdu"><img className=" cursor-pointer" src={Instagram} alt="InstagramLogo" />
+            <div className="flex justify-center items-center mt-10 gap-20">
+                <a href="mailto:casawines@gmail.com">
+                    <img 
+                        className="cursor-pointer" 
+                        src={Email} 
+                        alt="Email contact icon for Domaine Casademont" 
+                    />
+                </a>
+                <a href="https://www.instagram.com/domaine_casademont?igsh=em12cW1iZTVkZTdu">
+                    <img 
+                        className="cursor-pointer" 
+                        src={Instagram} 
+                        alt="Instagram profile link for Domaine Casademont" 
+                    />
                 </a>
             </div>
             <div className="absolute bottom-0 w-full text-center text-white p-4">
