@@ -8,6 +8,7 @@ import SEO from '../SEO/SEO'
 type Props = {}
 
 export default function Wines({ }: Props) {
+
   return (
     <>
       <SEO 

@@ -50,7 +50,7 @@ export default function Model(props) {
         castShadow
         receiveShadow
         geometry={nodes.LabelVI.geometry}
-        material={materials['Material.009']}
+        material={materials['Material.010']}
         scale={0.078}
         visible={wine.num === 2}
 
@@ -59,7 +59,7 @@ export default function Model(props) {
         castShadow
         receiveShadow
         geometry={nodes.LabelBL.geometry}
-        material={materials['Material.010']}
+        material={materials['Material.009']}
         scale={0.078}
         visible={wine.num === 3}
       />
