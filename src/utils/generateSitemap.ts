@@ -1,9 +1,14 @@
-import { writeFileSync } from 'node:fs';
+import { writeFileSync } from 'fs';
+
+interface Page {
+  path: string;
+  priority: number;
+  changefreq: string;
+}
 
 const domain = 'https://domainecasademont.com';
 
-// Expand pages array to include all important routes
-const pages = [
+const pages: Page[] = [
   {
     path: '',
     priority: 1.0,
@@ -18,13 +23,10 @@ const pages = [
     path: '/about',
     priority: 0.8,
     changefreq: 'monthly'
-  },
- 
-
+  }
 ];
 
-// Add date formatting helper
-const formatDate = (date) => {
+const formatDate = (date: Date): string => {
   return date.toISOString().split('T')[0];
 };
 
@@ -46,15 +48,8 @@ const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
     .join('')}
 </urlset>`;
 
-// Format the XML to be more readable
-const formattedSitemap = sitemap
-  .trim()
-  .replace(/>\s+</g, '><')
-  .replace(/(<url>|<\/url>)/g, '\n$1')
-  .replace(/(<loc>|<lastmod>|<changefreq>|<priority>)/g, '\n  $1');
-
 try {
-  writeFileSync('public/sitemap.xml', formattedSitemap);
+  writeFileSync('public/sitemap.xml', sitemap);
   console.log('Sitemap generated successfully!');
 } catch (error) {
   console.error('Error generating sitemap:', error);
