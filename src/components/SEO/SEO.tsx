@@ -10,7 +10,7 @@ interface SEOProps {
 
 const SEO = ({ title, description, image, url, type = 'website' }: SEOProps) => {
   const siteUrl = 'https://domainecasademont.com'; 
-  const defaultImage = '/Logo.png'; //
+  const defaultImage = 'public/favicon.svg'
 
   return (
     <Helmet>

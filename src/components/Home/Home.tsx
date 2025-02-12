@@ -4,6 +4,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Link } from 'react-router-dom';
 import { Analytics } from '@vercel/analytics/react'
+import SEO from '../SEO/SEO';
 
 const Home = () => {
   const divRef = useRef<HTMLDivElement>(null);
@@ -74,49 +75,57 @@ const Home = () => {
   }
 
   return (
-    <div className="h-[300vh] w-screen flex items-center justify-center">
-      {/* Main Canvas */}
-      <MainCanvas />
-      <Analytics />
+    <>
+      <SEO 
+        title="Domaine Casademont | Natural French Wines"
+        description="Discover Domaine Casademont, a winery in Languedoc-Roussillon. Experience our exceptional French wines crafted by Adrien Rodriguez, from robust Marcelan to elegant Grenache and Muscat. Visit our vineyard and taste the essence of southern France."
+        url="/"
+        type="website"
+      />
+      <div className="h-[300vh] w-screen flex items-center justify-center">
+        {/* Main Canvas */}
+        <MainCanvas />
+        <Analytics />
 
-      {isScrolled && (
-        <div className="absolute bottom-10 transform -translate-x-1/2 animate-bounce z-10">
-          <svg
-            width="40"
-            height="40"
-            viewBox="0 0 24 24"
-            fill="none"
-          stroke="black"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          className="black transition-colors"
-          onClick={() => window.scrollTo({ 
-            top: window.innerHeight * 2.5, // Scroll to the bottom section (250vh)
-            behavior: 'smooth' 
-          })}
+        {isScrolled && (
+          <div className="absolute bottom-10 transform -translate-x-1/2 animate-bounce z-10">
+            <svg
+              width="40"
+              height="40"
+              viewBox="0 0 24 24"
+              fill="none"
+            stroke="black"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="black transition-colors"
+            onClick={() => window.scrollTo({ 
+              top: window.innerHeight * 2.5, // Scroll to the bottom section (250vh)
+              behavior: 'smooth' 
+            })}
+          >
+              <path d="M6 9l6 6 6-6" />
+            </svg>
+          </div>
+        )}
+
+        {/* Animated Section */}
+        <div
+          className="w-screen h-screen bg-black text-white absolute top-[250vh] flex flex-col justify-center items-center"
+          ref={divRef}
         >
-            <path d="M6 9l6 6 6-6" />
-          </svg>
-        </div>
-      )}
+          <h1 className="text-4xl md:text-6xl lg:text-8xl text-center px-4">
+            DOMAINE CASADEMONT
+          </h1>
 
-      {/* Animated Section */}
-      <div
-        className="w-screen h-screen bg-black text-white absolute top-[250vh] flex flex-col justify-center items-center"
-        ref={divRef}
-      >
-        <h1 className="text-4xl md:text-6xl lg:text-8xl text-center px-4">
-          DOMAINE CASADEMONT
-        </h1>
-
-        {/* Links Section */}
-        <div className="flex flex-col justify-center items-center md:flex-row gap-6 md:gap-10 lg:gap-20 mt-10 md:mt-20 text-2xl md:text-3xl lg:text-4xl">
-          <Link to="/wines">Wines</Link>
-          <Link to="/about">About Us</Link>
+          {/* Links Section */}
+          <div className="flex flex-col justify-center items-center md:flex-row gap-6 md:gap-10 lg:gap-20 mt-10 md:mt-20 text-2xl md:text-3xl lg:text-4xl">
+            <Link to="/wines">Wines</Link>
+            <Link to="/about">About Us</Link>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
