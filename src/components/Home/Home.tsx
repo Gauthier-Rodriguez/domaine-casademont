@@ -8,10 +8,16 @@ import SEO from '../SEO/SEO';
 
 const Home = () => {
   const divRef = useRef<HTMLDivElement>(null);
-  // Add hydrated state
   const [isHydrated, setIsHydrated] = useState(false);
   const [isScrolled, setIsScrolled] = useState(true);
-  // Handle hydration complete
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    if (window.innerWidth < 768) {
+      setIsMobile(true)
+    }
+  }, []);
+
   useEffect(() => {
     setIsHydrated(true);
   }, []);
@@ -28,7 +34,6 @@ const Home = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Setup GSAP animation after hydration
   useEffect(() => {
     if (!isHydrated) return;
 
@@ -92,7 +97,6 @@ const Home = () => {
         type="website"
       />
       <div className="h-[300vh] w-screen flex items-center justify-center">
-        {/* Main Canvas */}
         <MainCanvas />
         <Analytics />
 
@@ -108,17 +112,21 @@ const Home = () => {
             strokeLinecap="round"
             strokeLinejoin="round"
             className="black transition-colors"
-            onClick={() => window.scrollTo({ 
-              top: window.innerHeight * 2.5, // Scroll to the bottom section (250vh)
+            onClick={() => isMobile ? window.scrollTo({ 
+              top: window.innerHeight * 2.8, 
               behavior: 'smooth' 
-            })}
+            }) : 
+            window.scrollTo({ 
+              top: window.innerHeight * 2.5, 
+              behavior: 'smooth' 
+            }) 
+          }
           >
               <path d="M6 9l6 6 6-6" />
             </svg>
           </div>
         )}
 
-        {/* Animated Section */}
         <div
           className="w-screen h-screen bg-black text-white absolute top-[250vh] flex flex-col justify-center items-center"
           ref={divRef}
@@ -127,7 +135,6 @@ const Home = () => {
             DOMAINE CASADEMONT
           </h1>
 
-          {/* Links Section */}
           <div className="flex flex-col justify-center items-center md:flex-row gap-6 md:gap-10 lg:gap-20 mt-10 md:mt-20 text-2xl md:text-3xl lg:text-4xl">
             <Link to="/wines">Wines</Link>
             <Link to="/about">About Us</Link>

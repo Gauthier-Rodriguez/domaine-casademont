@@ -37,7 +37,7 @@ const Footer = () => {
         <div className="h-[100vh] w-screen bg-slate-300 flex flex-col justify-center items-center relative z-50">
             <h1
                 ref={h1Ref}
-                className="text-5xl text-white font-bold transition-all duration-500 ease-in-out"
+                className="text-4xl text-white font-bold transition-all duration-500 ease-in-out"
             >
                 CONTACT
             </h1>

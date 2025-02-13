@@ -106,7 +106,7 @@ export default function WinesCanvas({ }: Props) {
                 onClick={() => {
                   const currentScroll = window.scrollY
                   window.scrollTo({
-                    top: currentScroll + window.innerHeight, // Scroll to the bottom section (250vh)
+                    top: currentScroll + window.innerHeight,
                     behavior: 'smooth'
                   })
                 }}
@@ -152,7 +152,6 @@ export default function WinesCanvas({ }: Props) {
         ))}
       </div>
 
-      {/* Modal */}
       {isOpenModal && activeSection !== null && (
         <div className="fixed inset-0 bg-black/30 backdrop-blur-sm z-50 flex items-center justify-center">
           <div

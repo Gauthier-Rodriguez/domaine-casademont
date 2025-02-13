@@ -1,5 +1,3 @@
-import { Suspense } from 'react';
-import WineLoader from '../Loader/WineLoader';
 import WinesCanvas from '../Three/winesCanvas'
 import Nav from '../Nav/Nav'
 import Footer from '../Footer/Footer'
@@ -20,9 +18,7 @@ export default function Wines({ }: Props) {
       <div className='w-screen h-[500vh] overflow-hidden'>
         <Nav />
         <div className='w-screen bg-custom z-0'>
-          <Suspense fallback={<WineLoader />}>
             <WinesCanvas />
-          </Suspense>
         </div>
         <div className='z-10'>
           <Footer />
