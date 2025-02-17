@@ -14,7 +14,7 @@ const Footer = () => {
         if (h1Ref.current) {
             // Create a GSAP ScrollTrigger instance
             const animation = gsap.to(h1Ref.current, {
-                fontSize: "5rem", // Target font size
+                fontSize: "4.5rem", // Target font size
                 duration: 2, // Animation duration
                 ease: "power4.inOut", // Easing for smooth animation
                 scrollTrigger: {

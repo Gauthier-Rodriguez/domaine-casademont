@@ -1,11 +1,16 @@
 import React from 'react';
 import { useGLTF } from '@react-three/drei';
 import { wineStore } from '../Store/wines';
+import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader';
 
 export default function Model(props) {
-  const { nodes, materials } = useGLTF('/casa_bottle.glb');
-  const wine = wineStore((state) => state.wine);
+  const { nodes, materials } = useGLTF('/casa_bottle.glb', true, undefined, (loader) => {
+    const dracoLoader = new DRACOLoader();
+    dracoLoader.setDecoderPath('https://www.gstatic.com/draco/versioned/decoders/1.5.6/'); // Use CDN
+    loader.setDRACOLoader(dracoLoader);
+  });
 
+  const wine = wineStore((state) => state.wine);
 
   return (
     <group
@@ -75,4 +80,9 @@ export default function Model(props) {
   );
 }
 
-useGLTF.preload('/casa_bottle.glb');
+// Preload with Draco
+useGLTF.preload('/casa_bottle.glb', true, undefined, (loader) => {
+  const dracoLoader = new DRACOLoader();
+  dracoLoader.setDecoderPath('https://www.gstatic.com/draco/versioned/decoders/1.5.6/');
+  loader.setDRACOLoader(dracoLoader);
+});
