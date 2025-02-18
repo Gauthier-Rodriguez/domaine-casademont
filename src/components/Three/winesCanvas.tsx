@@ -92,7 +92,7 @@ export default function WinesCanvas({ }: Props) {
               +
             </button>
             <p className="text-6xl text-center">{section.text}</p>
-            <div className="absolute bottom-10 transform -translate-x-1/2 animate-bounce z-10 hidden sm:block">
+            <div className="absolute hidden sm:block bottom-10 transform -translate-x-1/2 animate-bounce z-10">
               <svg
                 width="40"
                 height="40"
@@ -113,6 +113,34 @@ export default function WinesCanvas({ }: Props) {
               >
                 <path d="M6 9l6 6 6-6" />
               </svg>
+            </div>
+            <div className="absolute bottom-10 right-10 z-50 hidden sm:block">
+                <motion.button
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ amount: 0.8 }}
+                    className="p-3 rounded-full bg-white/70 backdrop-blur-sm hover:bg-white/80 transition-colors"
+                    onClick={() => {
+                        document.documentElement.scrollTo({
+                            top: 0,
+                            behavior: 'smooth'
+                        });
+                    }}
+                    aria-label="Scroll to top"
+                >
+                    <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="black"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                    >
+                        <path d="M18 15l-6-6-6 6" />
+                    </svg>
+                </motion.button>
             </div>
             <div className="hidden sm:block absolute left-0 text-justify w-1/4 ml-10">
               <motion.p

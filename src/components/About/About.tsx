@@ -7,7 +7,7 @@ import SEO from '../SEO/SEO'
 type Props = {}
 
 const OPTIONS: EmblaOptionsType = { loop: true }
-const SLIDE_COUNT = 6
+const SLIDE_COUNT = 16
 const SLIDES = Array.from(Array(SLIDE_COUNT).keys())
 
 export default function about({ }: Props) {
