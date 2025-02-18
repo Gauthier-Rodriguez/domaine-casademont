@@ -201,7 +201,7 @@ export default function WinesCanvas({ }: Props) {
               <div>
                 <p>{sections[activeSection].description}</p>
               </div>
-              <div className="mt-5">
+            {/*   <div className="mt-5">
                 {Array.isArray(sections[activeSection].cepage) ? (
                   sections[activeSection].cepage.map((cepage, index) => (
                     <p className="font-bold" key={index}>{cepage}</p>
@@ -209,7 +209,7 @@ export default function WinesCanvas({ }: Props) {
                 ) : (
                   <p className="font-bold">{sections[activeSection].cepage}</p>
                 )}
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
