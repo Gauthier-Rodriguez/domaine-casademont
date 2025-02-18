@@ -15,25 +15,25 @@ export default function WinesCanvas({ }: Props) {
     {
       text: "FLORANGE",
       gradient: "from-amber-500 to-pink-500",
-      description: "Crafted with minimal intervention to highlight the purity of its grapes. Bursting with fresh citrus and floral aromas, it offers a crisp, well-balanced palate with a touch of minerality. Unfiltered and free from additives.",
+      description: "GRENACHE and MARSELAN direct press and MUSCAT PETIT GRAIN 6 days maceration",
       cepage: "CHARDONNAY"
     },
     {
       text: "GOT DE BLANC",
       gradient: "from-amber-200 to-yellow-400",
-      description: "Crafted with minimal intervention to highlight the purity of its grapes. Bursting with fresh citrus and floral aromas, it offers a crisp, well-balanced palate with a touch of minerality. Unfiltered and free from additives.",
+      description: "SAUVIGNON BLANC direct press",
       cepage: ["MUSCAT", "SAUVIGNON"]
     },
     {
       text: "GOT DE VI",
       gradient: "from-pink-500 to-rose-500",
-      description: "Crafted with minimal intervention to highlight the purity of its grapes. Bursting with fresh citrus and floral aromas, it offers a crisp, well-balanced palate with a touch of minerality. Unfiltered and free from additives.",
+      description: "GRENACHE and SYRAH 12 days maceration",
       cepage: ["MARSELAN"]
     },
     {
       text: "ROSÉ",
       gradient: "from-violet-200 to-pink-200",
-      description: "Crafted with minimal intervention to highlight the purity of its grapes. Bursting with fresh citrus and floral aromas, it offers a crisp, well-balanced palate with a touch of minerality. Unfiltered and free from additives.",
+      description: "GRENACHE direct press",
       cepage: ["PINOT NOIR"]
     },
   ];
@@ -152,7 +152,7 @@ export default function WinesCanvas({ }: Props) {
                 {section.description}
               </motion.p>
             </div>
-            <div className="hidden sm:block absolute right-0 text-justify w-1/4 ml-10">
+            {/* <div className="hidden sm:block absolute right-0 text-justify w-1/4 ml-10">
               {Array.isArray(section.cepage) ? (
                 section.cepage.map((cepage, index) => (
                   <motion.p
@@ -175,7 +175,7 @@ export default function WinesCanvas({ }: Props) {
                   {section.cepage}
                 </motion.p>
               )}
-            </div>
+            </div> */}
           </div>
         ))}
       </div>
