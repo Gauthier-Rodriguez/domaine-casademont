@@ -3,6 +3,8 @@ import { Canvas } from "@react-three/fiber";
 import WinesScene from "./winesScene";
 import { useEffect, useState, useRef } from "react";
 import { motion } from 'framer-motion';
+import CircularText from '../Wines/CircularText';
+
 
 type Props = {};
 
@@ -16,25 +18,25 @@ export default function WinesCanvas({ }: Props) {
       text: "FLORANGE",
       gradient: "from-amber-500 to-pink-500",
       description: "GRENACHE and MARSELAN direct press and MUSCAT PETIT GRAIN 6 days maceration",
-      cepage: "CHARDONNAY"
+      cepage: "GRENACHE*MARSELAN*MUSCAT*"
     },
     {
       text: "GOT DE BLANC",
       gradient: "from-amber-200 to-yellow-400",
       description: "SAUVIGNON BLANC direct press",
-      cepage: ["MUSCAT", "SAUVIGNON"]
+      cepage: "SAUVIGNON*SAUVIGNON*"
     },
     {
       text: "GOT DE VI",
       gradient: "from-pink-500 to-rose-500",
       description: "GRENACHE and SYRAH 12 days maceration",
-      cepage: ["MARSELAN"]
+      cepage: "GRENACHE*SYRAH*"
     },
     {
       text: "ROSÉ",
       gradient: "from-violet-200 to-pink-200",
       description: "GRENACHE direct press",
-      cepage: ["PINOT NOIR"]
+      cepage: "GRENACHE*GRENACHE*"
     },
   ];
 
@@ -91,7 +93,7 @@ export default function WinesCanvas({ }: Props) {
             >
               +
             </button>
-            <p className="text-6xl text-center">{section.text}</p>
+            <p className="text-6xl sm:text-8xl text-center">{section.text}</p>
             <div className="absolute hidden sm:block bottom-10 transform -translate-x-1/2 animate-bounce z-10">
               <svg
                 width="40"
@@ -115,32 +117,32 @@ export default function WinesCanvas({ }: Props) {
               </svg>
             </div>
             <div className="absolute bottom-10 right-10 z-50 hidden sm:block">
-                <motion.button
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    viewport={{ amount: 0.8 }}
-                    className="p-3 rounded-full bg-white/70 backdrop-blur-sm hover:bg-white/80 transition-colors"
-                    onClick={() => {
-                        document.documentElement.scrollTo({
-                            top: 0,
-                            behavior: 'smooth'
-                        });
-                    }}
-                    aria-label="Scroll to top"
+              <motion.button
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ amount: 0.8 }}
+                className="p-3 rounded-full bg-white/70 backdrop-blur-sm hover:bg-white/80 transition-colors"
+                onClick={() => {
+                  document.documentElement.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                  });
+                }}
+                aria-label="Scroll to top"
+              >
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="black"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 >
-                    <svg
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="black"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                    >
-                        <path d="M18 15l-6-6-6 6" />
-                    </svg>
-                </motion.button>
+                  <path d="M18 15l-6-6-6 6" />
+                </svg>
+              </motion.button>
             </div>
             <div className="hidden sm:block absolute left-0 text-justify w-1/4 ml-10">
               <motion.p
@@ -151,7 +153,26 @@ export default function WinesCanvas({ }: Props) {
               >
                 {section.description}
               </motion.p>
+
+
             </div>
+
+            <div className="absolute right-16 hidden sm:block">
+              <motion.div
+                initial={{ opacity: 0, x: 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: false }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+              >
+                <CircularText
+                  text={section.cepage}
+                  onHover="speedUp"
+                  spinDuration={20}
+                  className="custom-class" />
+              </motion.div>
+            </div>
+
+
             {/* <div className="hidden sm:block absolute right-0 text-justify w-1/4 ml-10">
               {Array.isArray(section.cepage) ? (
                 section.cepage.map((cepage, index) => (
@@ -201,7 +222,7 @@ export default function WinesCanvas({ }: Props) {
               <div>
                 <p>{sections[activeSection].description}</p>
               </div>
-            {/*   <div className="mt-5">
+              {/*   <div className="mt-5">
                 {Array.isArray(sections[activeSection].cepage) ? (
                   sections[activeSection].cepage.map((cepage, index) => (
                     <p className="font-bold" key={index}>{cepage}</p>

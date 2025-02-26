@@ -90,14 +90,14 @@ const Carousel: React.FC<PropType> = (props) => {
           <div ref={modalRef}>
             {selectedImage > 0 ? (
               <div
-                className="absolute cursor-pointer bottom-1/2 left-5 text-white z-50"
+                className="absolute cursor-pointer bottom-1/2 left-5 text-white text-2xl z-50"
                 onClick={() => setSelectedImage(selectedImage - 1)}
               >
                 Prev
               </div>
             ) : (
               <div
-                className="absolute cursor-pointer bottom-1/2 left-5 text-white z-50"
+                className="absolute cursor-pointer bottom-1/2 left-5 text-white text-2xl z-50"
                 onClick={() => setSelectedImage(14)}
               >
                 Prev
@@ -106,14 +106,14 @@ const Carousel: React.FC<PropType> = (props) => {
 
             {selectedImage < 14 ? (
               <div
-                className="absolute cursor-pointer bottom-1/2 right-5 text-white z-50"
+                className="absolute cursor-pointer bottom-1/2 right-5 text-white text-2xl z-50"
                 onClick={() => setSelectedImage(selectedImage + 1)}
               >
                 Next
               </div>
             ) : (
               <div
-                className="absolute cursor-pointer bottom-1/2 right-5 text-white z-50"
+                className="absolute cursor-pointer bottom-1/2 right-5 text-white text-2xl z-50"
                 onClick={() => setSelectedImage(0)}
               >
                 Next
