@@ -18,25 +18,29 @@ export default function WinesCanvas({ }: Props) {
       text: "FLORANGE",
       gradient: "from-amber-500 to-pink-500",
       description: "GRENACHE and MARSELAN direct press and MUSCAT PETIT GRAIN 6 days maceration",
-      cepage: "GRENACHE*MARSELAN*MUSCAT*"
+      cepage: "GRENACHE*MARSELAN*MUSCAT*",
+      link: "/tech_sheets/florange.pdf"
     },
     {
       text: "GOT DE BLANC",
       gradient: "from-amber-200 to-yellow-400",
       description: "SAUVIGNON BLANC direct press",
-      cepage: "SAUVIGNON*SAUVIGNON*"
+      cepage: "SAUVIGNON*SAUVIGNON*",
+      link: "/tech_sheets/gotdeblanc.pdf"
     },
     {
       text: "GOT DE VI",
       gradient: "from-pink-500 to-rose-500",
       description: "GRENACHE and SYRAH 12 days maceration",
-      cepage: "GRENACHE*SYRAH*"
+      cepage: "GRENACHE*SYRAH*",
+      link: "/tech_sheets/gotdevi.pdf"
     },
     {
       text: "ROSÉ",
       gradient: "from-violet-200 to-pink-200",
       description: "GRENACHE direct press",
-      cepage: "GRENACHE*GRENACHE*"
+      cepage: "GRENACHE*GRENACHE*",
+      link: "/tech_sheets/rose.pdf"
     },
   ];
 
@@ -156,6 +160,19 @@ export default function WinesCanvas({ }: Props) {
 
 
             </div>
+            <motion.a
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: false }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              className={`absolute left-10 top-2/3 text-sm font-bold text-white bg-gradient-to-r ${section.gradient} px-4 py-2 rounded-full hover:scale-105 transition-transform`}
+              href={section.link}
+              download={true}
+            >
+
+              DOWNLOAD TECH SHEET
+
+            </motion.a>
 
             <div className="absolute right-16 hidden sm:block">
               <motion.div
