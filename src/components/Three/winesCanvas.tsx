@@ -2,7 +2,7 @@ import { Environment } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import WinesScene from "./winesScene";
 import { useEffect, useState, useRef } from "react";
-import { color, motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import CircularText from '../Wines/CircularText';
 
 
