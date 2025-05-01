@@ -2,7 +2,7 @@ import { Environment } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import WinesScene from "./winesScene";
 import { useEffect, useState, useRef } from "react";
-import { motion } from 'framer-motion';
+import { color, motion } from 'framer-motion';
 import CircularText from '../Wines/CircularText';
 
 
@@ -17,6 +17,7 @@ export default function WinesCanvas({ }: Props) {
     {
       text: "FLORANGE",
       gradient: "from-amber-500 to-pink-500",
+      color: "from-amber-500 to-pink-500",
       description: "GRENACHE and MARSELAN direct press and MUSCAT PETIT GRAIN 6 days maceration",
       cepage: "GRENACHE*MARSELAN*MUSCAT*",
       link: "/tech_sheets/florange.pdf"
@@ -24,6 +25,7 @@ export default function WinesCanvas({ }: Props) {
     {
       text: "GOT DE BLANC",
       gradient: "from-amber-200 to-yellow-400",
+      color: "from-amber-500 to-pink-500",
       description: "SAUVIGNON BLANC direct press",
       cepage: "SAUVIGNON*SAUVIGNON*",
       link: "/tech_sheets/gotdeblanc.pdf"
@@ -31,6 +33,7 @@ export default function WinesCanvas({ }: Props) {
     {
       text: "GOT DE VI",
       gradient: "from-pink-500 to-rose-500",
+      color: "from-amber-500 to-pink-500",
       description: "GRENACHE and SYRAH 12 days maceration",
       cepage: "GRENACHE*SYRAH*",
       link: "/tech_sheets/gotdevi.pdf"
@@ -38,6 +41,7 @@ export default function WinesCanvas({ }: Props) {
     {
       text: "ROSÉ",
       gradient: "from-violet-200 to-pink-200",
+      color: "from-amber-500 to-pink-500",
       description: "GRENACHE direct press",
       cepage: "GRENACHE*GRENACHE*",
       link: "/tech_sheets/rose.pdf"
@@ -161,11 +165,11 @@ export default function WinesCanvas({ }: Props) {
 
             </div>
             <motion.a
-              initial={{ opacity: 0, x: -50 }}
+              initial={{ opacity: 0 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: false }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-              className={`absolute left-10 top-2/3 text-sm font-bold text-white bg-gradient-to-r ${section.gradient} px-4 py-2 rounded-full hover:scale-105 transition-transform`}
+              transition={{ duration: 1, ease: "easeOut" }}
+              className={`hidden sm:block absolute left-10 top-2/3 text-sm text-white text-bold bg-gradient-to-r ${section.color} px-4 py-2 rounded-full hover:scale-105 transition-transform z-50`}
               href={section.link}
               download={true}
             >
@@ -239,6 +243,8 @@ export default function WinesCanvas({ }: Props) {
               <div>
                 <p>{sections[activeSection].description}</p>
               </div>
+
+
               {/*   <div className="mt-5">
                 {Array.isArray(sections[activeSection].cepage) ? (
                   sections[activeSection].cepage.map((cepage, index) => (
@@ -248,6 +254,16 @@ export default function WinesCanvas({ }: Props) {
                   <p className="font-bold">{sections[activeSection].cepage}</p>
                 )}
               </div> */}
+            </div>
+            <div className="mt-5">
+              <a
+                className={`text-sm text-white text-bold bg-gradient-to-r ${sections[activeSection].gradient} px-4 py-2 rounded-full hover:scale-105 transition-transform z-50`}
+                href={sections[activeSection].link}
+                download={true}
+              >
+                DOWNLOAD TECH SHEET
+              <img src="/download.svg" alt="Download" className="inline-block ml-2 w-6 h-6" />
+              </a>
             </div>
           </div>
         </div>
