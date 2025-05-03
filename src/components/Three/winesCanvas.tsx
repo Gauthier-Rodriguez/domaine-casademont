@@ -81,6 +81,7 @@ export default function WinesCanvas({ }: Props) {
           shadows
           dpr={[1, 2]}
           camera={{ position: [0, 0, 6], fov: 55 }}
+          className="" 
         >
           <ambientLight intensity={2.2} />
           <Environment preset="night" />

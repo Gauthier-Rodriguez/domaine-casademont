@@ -85,7 +85,7 @@ export default function WinesScene() {
 
   return (
     <>
-      <group ref={initialGroup} position={initialPosition} rotation={initialRotation} >
+      <group ref={initialGroup} position={initialPosition} rotation={initialRotation}>
         <group ref={bottle1Spin}>
           <Model children={undefined} />
         </group>

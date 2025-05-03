@@ -34,7 +34,7 @@ const Footer = () => {
     }, []);
 
     return (
-        <div className="h-[100vh] w-screen bg-slate-300 flex flex-col justify-center items-center relative z-50">
+        <div className="h-[100vh] w-screen bg-slate-300 flex flex-col justify-center items-center relative z-40">
             <h1
                 ref={h1Ref}
                 className="text-4xl text-white font-bold transition-all duration-500 ease-in-out"
@@ -58,7 +58,7 @@ const Footer = () => {
                 </a>
             </div>
             <div className="absolute bottom-0 w-full text-center text-white p-4">
-                <p>ALL RIGHTS RESERVED 2025</p>
+                <p>ALL RIGHTS RESERVED {new Date().getFullYear()}</p>
                 <p>DOMAINE CASADEMONT</p>
             </div>
             <div className="absolute bottom-10 right-10">

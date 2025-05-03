@@ -17,12 +17,10 @@ export default function Wines({ }: Props) {
       />
       <div className='w-screen h-[500vh] overflow-hidden'>
         <Nav />
-        <div className='w-screen bg-custom z-0'>
+        <div className='w-screen bg-custom '>
             <WinesCanvas />
         </div>
-        <div className='z-10'>
           <Footer />
-        </div>
       </div>
     </>
   )
