@@ -85,14 +85,14 @@ const Carousel: React.FC<PropType> = (props) => {
           <div ref={modalRef}>
             {selectedImage > 0 ? (
               <div
-                className="absolute cursor-pointer bottom-1/2 left-20 text-white text-2xl "
+                className="absolute cursor-pointer bottom-24 sm:bottom-1/2 left-10 sm:left-20 text-white text-2xl "
                 onClick={() => setSelectedImage(selectedImage - 1)}
               >
                 <img src="/arrow-left.svg" alt="Previous" className="w-8 h-8" />
               </div>
             ) : (
               <div
-                className="absolute cursor-pointer bottom-1/2 left-20 text-white text-2xl "
+                className="absolute cursor-pointer bottom-24 sm:bottom-1/2 left-10 sm:left-20 text-white text-2xl "
                 onClick={() => setSelectedImage(14)}
               >
                 <img src="/arrow-left.svg" alt="Previous" className="w-8 h-8" />
@@ -101,7 +101,7 @@ const Carousel: React.FC<PropType> = (props) => {
 
             {selectedImage < 14 ? (
               <div
-                className="absolute cursor-pointer bottom-1/2 right-20 text-white text-2xl "
+                className="   absolute cursor-pointer bottom-24 sm:bottom-1/2 right-10 sm:right-20 text-white text-2xl "
                 onClick={() => setSelectedImage(selectedImage + 1)}
               >
                 <img src="/arrow-right.svg" alt="Next" className="w-8 h-8" />
@@ -109,7 +109,7 @@ const Carousel: React.FC<PropType> = (props) => {
               </div>
             ) : (
               <div
-                className="absolute cursor-pointer bottom-1/2 right-20 text-white text-2xl "
+                className="block sm:hidden absolute cursor-pointer bottom-24 sm:bottom-1/2 right-10 sm:right-20 text-white text-2xl "
                 onClick={() => setSelectedImage(0)}
               >
                 <img src="/arrow-right.svg" alt="Next" className="w-8 h-8" />
