@@ -88,14 +88,14 @@ const Carousel: React.FC<PropType> = (props) => {
                 className="absolute cursor-pointer bottom-1/2 left-20 text-white text-2xl "
                 onClick={() => setSelectedImage(selectedImage - 1)}
               >
-                <img src="public/arrow-left.svg" alt="Previous" className="w-8 h-8" />
+                <img src="/arrow-left.svg" alt="Previous" className="w-8 h-8" />
               </div>
             ) : (
               <div
                 className="absolute cursor-pointer bottom-1/2 left-20 text-white text-2xl "
                 onClick={() => setSelectedImage(14)}
               >
-                <img src="public/arrow-left.svg" alt="Previous" className="w-8 h-8" />
+                <img src="/arrow-left.svg" alt="Previous" className="w-8 h-8" />
               </div>
             )}
 
@@ -104,7 +104,7 @@ const Carousel: React.FC<PropType> = (props) => {
                 className="absolute cursor-pointer bottom-1/2 right-20 text-white text-2xl "
                 onClick={() => setSelectedImage(selectedImage + 1)}
               >
-                <img src="public/arrow-right.svg" alt="Previous" className="w-8 h-8" />
+                <img src="/arrow-right.svg" alt="Previous" className="w-8 h-8" />
 
               </div>
             ) : (
@@ -112,7 +112,7 @@ const Carousel: React.FC<PropType> = (props) => {
                 className="absolute cursor-pointer bottom-1/2 right-20 text-white text-2xl "
                 onClick={() => setSelectedImage(0)}
               >
-                <img src="public/arrow-right.svg" alt="Previous" className="w-8 h-8" />
+                <img src="/arrow-right.svg" alt="Previous" className="w-8 h-8" />
 
               </div>
             )}
